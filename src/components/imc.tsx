@@ -17,7 +17,6 @@ const IMC: React.FC<IMCProps> = () => {
     const pesoNum = parseFloat(peso);
     const alturaNum = parseFloat(altura);
 
-    // Validações
     if (pesoNum <= 0) {
       setErro('O peso deve ser um valor positivo');
       return;
@@ -28,7 +27,6 @@ const IMC: React.FC<IMCProps> = () => {
       return;
     }
 
-    // Cálculo do IMC
     const imc = pesoNum / (alturaNum * alturaNum);
     let classificacao = '';
 
@@ -54,8 +52,9 @@ const IMC: React.FC<IMCProps> = () => {
       <h2>Calculadora de IMC</h2>
       <form className="imc-form" onSubmit={calcularIMC}>
         <div className="input-group">
-          <label>Peso (kg):</label>
+          <label htmlFor="input-peso">Peso (kg):</label>
           <input
+            id="input-peso"
             type="number"
             step="0.1"
             value={peso}
@@ -65,8 +64,9 @@ const IMC: React.FC<IMCProps> = () => {
           />
         </div>
         <div className="input-group">
-          <label>Altura (m):</label>
+          <label htmlFor="input-altura">Altura (m):</label>
           <input
+            id="input-altura"
             type="number"
             step="0.01"
             value={altura}
